@@ -3,104 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Olá Mundo Glorificado</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-5YPo1qzHvB7K4QF4zKxS7OHSsnJxBzknnuVpA0G0Z1JVd7xU05x3pTqNjxT2Gwpz0jUEcEFYgfW9erZr4Cax7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" integrity="sha512-Ho7+cX8TfRmDYG7LGALYvrgSqWeyvE/Yuh+Yy+2kpcT7z9iOVtTXX2JGcoOBTsa5Vv9Wde1Yb0uMv4Uo6Q5g2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" integrity="sha512-c1J8N6JYqG3U+KsYQydx7cX3X9EbZSQ2H3R6DNLh2rA3IV9z6rT2qv6A29XNFziNzUMD0klfHj/3TR8gf1xv5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Olá Mundo Glorificado | Premium</title>
+    
+    <!-- Fonts & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
     <style>
+      :root {
+        --glass-bg: rgba(255, 255, 255, 0.07);
+        --glass-border: rgba(255, 255, 255, 0.15);
+        --accent-color: #00d2ff;
+      }
+
       body {
         min-height: 100vh;
-        background: linear-gradient(135deg, #0d6efd 0%, #6610f2 45%, #198754 100%);
-        color: #f8f9fa;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        /* Gradiente animado para dar vida ao fundo */
+        background: linear-gradient(-45deg, #0d6efd, #6610f2, #198754, #00d2ff);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
       }
+
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
       .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
+        justify-content: center;
       }
+
+      /* Efeito Glassmorphism Refinado */
       .card-glow {
-        background: rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+        background: var(--glass-bg);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid var(--glass-border);
+        border-radius: 2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       }
-      .badge-soft {
-        background: rgba(255, 255, 255, 0.18);
-        color: #ffffff;
+
+      .feature-card {
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.03);
+        cursor: pointer;
       }
-      .btn-glow {
-        box-shadow: 0 18px 40px rgba(255, 255, 255, 0.18);
+
+      .feature-card:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-10px);
+        border-color: var(--accent-color) !important;
       }
+
       .icon-circle {
-        width: 95px;
-        height: 95px;
+        width: 80px;
+        height: 80px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.16);
-        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: linear-gradient(45deg, var(--accent-color), #6610f2);
+        box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        margin-bottom: 2rem;
       }
+
+      .btn-custom {
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-glow:hover {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        transform: scale(1.05);
+      }
+
+      .badge-soft {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.5em 1.2em;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      h1 { letter-spacing: -2px; }
     </style>
   </head>
   <body>
-    <main class="container py-5">
-      <div class="row justify-content-center hero text-center text-white">
-        <div class="col-lg-8">
-          <div class="card card-glow p-5">
-            <div data-aos="zoom-in" data-aos-duration="800" class="mb-4">
-              <span class="icon-circle mx-auto mb-4 d-inline-flex">
-                <i class="fas fa-globe fa-2x"></i>
-              </span>
-              <h1 class="display-4 fw-bold">Olá Mundo Glorificado</h1>
-              <p class="lead mt-3">
-                Bem-vindo(a) a uma página simples e impactante com Bootstrap, animações AOS e ícones Font Awesome.
-              </p>
+    <main class="container">
+      <div class="row hero text-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="card card-glow p-4 p-md-5" data-aos="zoom-in">
+            
+            <div class="icon-circle" data-aos="bounce-in">
+              <i class="fas fa-rocket fa-2x"></i>
             </div>
-            <div class="row g-4 mt-5">
+            
+            <h1 class="display-3 fw-extrabold mb-3">Olá Mundo <span class="text-info">Glorificado</span></h1>
+            <p class="lead opacity-75 mb-5 mx-auto" style="max-width: 600px;">
+              Uma experiência visual imersiva construída com tecnologia de ponta e design focado em performance.
+            </p>
+
+            <div class="row g-4">
+              <!-- Card 1 -->
               <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-4 rounded-4 border border-white border-opacity-25 h-100">
-                  <div class="badge badge-soft mb-3">Design</div>
-                  <h5 class="fw-semibold">Visual moderno</h5>
-                  <p class="mb-0">Cores vibrantes, tipografia clara e elementos com profundidade.</p>
+                <div class="p-4 rounded-4 border border-white border-opacity-10 h-100 feature-card">
+                  <div class="badge badge-soft rounded-pill mb-3 text-uppercase">Design</div>
+                  <h5 class="fw-bold">UI Glass</h5>
+                  <p class="small opacity-75 mb-0">Profundidade com desfoque de fundo e transparências.</p>
                 </div>
               </div>
+              <!-- Card 2 -->
               <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="p-4 rounded-4 border border-white border-opacity-25 h-100">
-                  <div class="badge badge-soft mb-3">Animação</div>
-                  <h5 class="fw-semibold">Entradas suaves</h5>
-                  <p class="mb-0">Aos cria movimento elegante sem complicação.</p>
+                <div class="p-4 rounded-4 border border-white border-opacity-10 h-100 feature-card">
+                  <div class="badge badge-soft rounded-pill mb-3 text-uppercase">Motion</div>
+                  <h5 class="fw-bold">Fluidez</h5>
+                  <p class="small opacity-75 mb-0">Gradientes vivos e animações de entrada suaves.</p>
                 </div>
               </div>
+              <!-- Card 3 -->
               <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-4 rounded-4 border border-white border-opacity-25 h-100">
-                  <div class="badge badge-soft mb-3">Ícones</div>
-                  <h5 class="fw-semibold">Font Awesome</h5>
-                  <p class="mb-0">Ícones prontos para destacar seções com personalidade.</p>
+                <div class="p-4 rounded-4 border border-white border-opacity-10 h-100 feature-card">
+                  <div class="badge badge-soft rounded-pill mb-3 text-uppercase">Code</div>
+                  <h5 class="fw-bold">Clean</h5>
+                  <p class="small opacity-75 mb-0">Estrutura otimizada para SEO e acessibilidade.</p>
                 </div>
               </div>
             </div>
-            <div class="mt-5" data-aos="fade-up" data-aos-delay="350">
-              <a href="#" class="btn btn-light btn-lg btn-glow me-3">
-                <i class="fas fa-star me-2"></i>Começar agora
+
+            <div class="mt-5 d-flex flex-column flex-sm-row justify-content-center gap-3">
+              <a href="#" class="btn btn-light btn-custom btn-glow">
+                <i class="fas fa-play-circle me-2"></i>Começar Agora
               </a>
-              <a href="#" class="btn btn-outline-light btn-lg">
-                <i class="fas fa-magic me-2"></i>Ver o código
+              <a href="#" class="btn btn-outline-light btn-custom">
+                <i class="fab fa-github me-2"></i>Repositório
               </a>
             </div>
+
           </div>
         </div>
       </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-yFik0i07j8S0H39K/CR0xkv8i6tv0qGf3+3blnZp7+/9apEI6WfMLX9P6f7/4nURhzHmIMzOYB2EicWrtY2GDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-5bD6Rvlyj0l5esS4k4xT+eW5ZQpA8Kb1TsD1GqiL6HH7E2HEI6czwg1F7XCEVsE3jYaSYoM+3hQ635JSlZpM6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       AOS.init({
+        duration: 1000,
         once: true,
-        duration: 800,
-        easing: "ease-out-cubic"
+        offset: 100
       });
     </script>
   </body>
